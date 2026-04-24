@@ -1,13 +1,11 @@
 from fastapi import FastAPI
+from app.routes import user
 
 app = FastAPI()
+
+app.include_router(user.router)
 @app.get("/")
 def home():
     return {"message":"Backend is running."}
 
-@app.get("/users/{user_id}")
-def get_user(user_id: int):
-    return {
-        "user_id": user_id,
-        "name":"Test User"
-    }
+
