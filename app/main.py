@@ -9,5 +9,3 @@ app.include_router(user.router)
 @app.get("/")
 def home():
     return {"message":"Backend is running."}
-
-
