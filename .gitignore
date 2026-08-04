@@ -11,3 +11,6 @@ __pycache__/
 
 # Environment variables
 .env
+
+# Ignore macOS finder data
+.DS_Store
