@@ -43,7 +43,8 @@ def update_user(
           )
      
      user.name = updated_user.name           # SQLAlchemy updating python object's detail, marking it dirty in the process until db commit. 
-     user.email = updated_user.email         # this saves generating multitple SQLs, batches the changes, UPDATEs & COMMITs happen when db.commit() is run. This bunches updates as a "Unit of Work".
+     user.email = updated_user.email         # this saves generating multitple SQLs, batches the changes, UPDATEs & COMMITs happen when db.commit() is run.
+     user.phone = updated_user.phone         # This bunches updates as a "Unit of Work".
      
      try:
          db.commit()             #ORM will generate the UPDATE cmd, then commit to DB
@@ -72,7 +73,8 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
     db_user = User(
         id = user.id,
         name = user.name,
-        email = user.email
+        email = user.email,
+        phone = user.phone
     )
 
     try:
